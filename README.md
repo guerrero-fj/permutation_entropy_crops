@@ -33,32 +33,77 @@ Traditional crop rotation assessments rely on **crop frequency analysis, Shannon
 
 ## **📊 Key Entropy Metrics Used in This Project**
 ### **1️⃣ Arithmetic Entropy (AE)**
-- Measures **local complexity** by analyzing **short-term ordinal patterns** in the sequence.
-- Uses an **embedding dimension** (window size) to detect structure.
-- **Accounts for ties**, which occur when the same crop appears consecutively.
-- **Formula:**
-  \[
-  H_{\text{AE, norm}} = \frac{H_{\text{AE}}}{\log_2(K)}
-  \]
-  where \(K\) is the number of unique ordinal patterns.
+- Measures **local complexity** using short-term ordinal patterns.
+- Uses an **embedding dimension (D)** to detect structure.
+- Handles **ties**, which occur when the same crop appears consecutively.
+- Here, AE is **normalized** so its value ranges from 0 to 1
+
+**Formula:**
+Hₐₑ = Hₐₑ / log₂(K)
+
+where **K** is the number of unique ordinal patterns.
 
 ### **2️⃣ Transition Arithmetic Entropy (TAE)**
 - Captures **global complexity** by encoding transitions between crops as distinct categories.
 - **Ties are treated as unique transition types** to avoid bias.
-- **Formula:**
-  \[
-  H_{\text{TAE, norm}} = \frac{H_{\text{TAE}}}{\log_2(M)}
-  \]
-  where \(M\) is the number of unique crop transitions.
+- Here TAE is **normalized** so its value ranges from 0 to 1
+
+**Formula:**
+Hₜₐₑ = Hₜₐₑ / log₂(M)
+
+where **M** is the number of unique crop transitions.
+
 
 ### **3️⃣ Combined Entropy Metric**
 - Integrates **AE and TAE** to quantify **overall crop sequence complexity**.
 - Uses the **Euclidean norm** to balance both local and global complexity:
-  \[
-  H_{\text{combined, norm}} = \frac{\sqrt{H_{\text{AE, norm}}^2 + H_{\text{TAE, norm}}^2}}{\sqrt{2}}
-  \]
+
+Hₜₒₜ = sqrt(Hₐₑ² + Hₜₐₑ²) / sqrt(2)
+  
 - **Why Use This?** It provides a **single, interpretable score** that reflects how structured or unpredictable a rotation is.
 
 ---
 
-## **📂 Project Structure**
+## **📈 Example Results**
+Input Crop Rotation Sequence
+["Wheat", "Wheat", "Corn", "Soybean", "Wheat", "Corn", "Wheat"]
+
+### **Computed Entropy Metrics**
+
+| **Metric** | Value |
+|-------------|------------|
+| Arithmetic Entropy (AE) |	0.65 |
+| Transition Arithmetic Entropy (TAE) |	0.80 |
+| Combined Entropy Metric |	0.73 |
+
+### **📊 Interpretation**:
+
+- AE = 0.65 → Moderate diversity in short-term patterns.
+- TAE = 0.80 → High diversity in global crop transitions.
+- Combined Metric = 0.73 → A well-structured, moderately complex rotation.
+
+## **🌍 Applications**
+- 🔬 Sustainable Agriculture – Identify rotation strategies that enhance soil health and biodiversity.
+- 📉 Climate Resilience – Evaluate the adaptability of crop rotations under changing climate conditions.
+- 📊 Comparative Studies – Rank different farming practices based on their entropy scores.
+- 📌 Policy & Decision-Making – Support data-driven agricultural planning and sustainability initiatives.
+
+## **🤝 Contributing**
+We welcome contributions! Feel free to:
+
+Fork the repository
+Create a feature branch (feature-name)
+Submit a pull request with detailed explanations
+
+## **📜 License**
+This project is licensed under the MIT License – allowing for free use, modification, and distribution.
+
+## **🚀 Future Directions**
+📌 Incorporate external crop scoring systems (e.g., climate resilience, pest control).
+📌 Expand to multi-year crop sequences for long-term analysis.
+📌 Automate report generation with R Markdown.
+
+## **💡 Final Thoughts**
+Permutation Entropy Crops brings a new perspective to agricultural data analysis, bridging the gap between mathematical complexity measures and real-world sustainability challenges. By leveraging entropy methods, we can better understand how crop rotation choices impact long-term resilience.
+
+🔹 Ready to explore entropy-based crop analysis? 🚜 Clone the repo and run analysis.R today! 🌾📊
