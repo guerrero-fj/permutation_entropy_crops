@@ -103,8 +103,8 @@ where $p(A_i)$ is the probability of observing the pattern $A_i$.
         - $S_1$​: Random numbers from the set $\{0,1,2,3,4\}$,
         - $S_2$​: Random numbers with added constraints (e.g., consecutive values are different).
     - **Findings**:
-        - For embedding dimension $D=3$, arithmetic entropy $(AE)$ is significantly higher than permutation entropy $(PE)$: $AE_{S1}=3.684 bits$,$PE_{S1}=2.497 bits$, $AE_{S2}=2.919 bits$, $PE_{S2}=2.368 bits$.
-        - Arithmetic entropy better discriminates between $S_1$ and $S2$​.
+        - For embedding dimension $D=3$, arithmetic entropy $(AE)$ is significantly higher than permutation entropy $(PE)$: $AE_{S1}=3.684 bits,$ $PE_{S1}=2.497 bits,$ $AE_{S2}=2.919 bits$, $PE_{S2}=2.368 bits$.
+        - Arithmetic entropy better discriminates between $S_1$ and $S_2$​.
           
 8. **Dependence on Delay $\tau$**:
     
@@ -130,4 +130,3 @@ where $p(A_i)$ is the probability of observing the pattern $A_i$.
 
 The method described in this paper offers a **robust, flexible alternative to standard permutation entropy**, particularly when ties are present in the data. By explicitly encoding ties and avoiding combinatorics, it preserves critical information and improves sensitivity in distinguishing datasets. This approach is well-suited for systems with quantized data, long sequences, or large embedding dimensions.
 
-If you're interested, I can help implement this arithmetic entropy method or compare it to standard permutation entropy for a dataset of your choice!
