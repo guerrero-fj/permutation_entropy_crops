@@ -32,15 +32,42 @@ This **arbitrary choice affects entropy calculations**, leading to **inconsisten
 
 ---
 
+### **Why Permutation Entropy with Ties Is Non-Trivial**
+
+1. **Ambiguity in Assigning Ordinal Patterns**:
+    
+    - In standard permutation entropy, ordinal patterns are unique for strictly ordered values (e.g., 123123123, 132132132, etc.).
+    - When ties occur, multiple valid interpretations for the ranking arise. For example:
+        - AABAABAAB could be viewed as 112112112 (if ties are explicitly broken or marked) or could be treated as 123123123 (ignoring the tie detail).
+2. **Counting Patterns Becomes Complex**:
+    
+    - With ties, there are **fewer unique ordinal patterns** compared to strictly ordered data, but the way patterns are counted must now incorporate these repeated ranks.
+    - This means the combinatorics of ordinal pattern assignment are modified, which requires a tailored approach to compute probabilities.
+3. **Violation of Assumptions**:
+    
+    - Classical permutation entropy assumes that all d!d!d! ordinal patterns for a given ddd are possible and equally likely in a perfectly random sequence.
+    - Ties reduce the number of feasible ordinal patterns, as not all strictly ordered patterns are valid when ties exist.
+4. **Impact on Shannon Entropy Calculation**:
+    
+    - When ties reduce the diversity of patterns, the entropy should decrease. However, how much it decreases depends on how ties are treated:
+        - **Breaking ties arbitrarily** may artificially inflate entropy.
+        - **Ignoring ties** may understate the complexity of the system.
+5. **Context Dependency**:
+    
+    - The treatment of ties depends on the context of the data. For example:
+        - Are ties a result of measurement precision (e.g., rounding)?
+        - Or are ties an intrinsic feature of the system (e.g., discrete states)?
+
+
 ## **2️⃣ How Does Classic PE Handle Ties?**
 
 The **original Bandt & Pompe (2002) method** forces an arbitrary **ranking rule**:
 
-1. **Break ties by assigning increasing ranks (first-come-first-served)**
+6. **Break ties by assigning increasing ranks (first-come-first-served)**
     
     - Example: `[10, 10, 5]` becomes **(3,1,2)**
     - The **first 10 is ranked lower** than the **second 10**.
-2. **Break ties randomly** (less common)
+7. **Break ties randomly** (less common)
     
     - Assign ranks at random (e.g., `[10, 10, 5]` could be **(3,1,2)** OR **(3,2,1)** randomly).
     - This **reduces bias**, but **introduces noise** into entropy calculations.

@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_knowledge/Permutation Entropy and Ties.md",
+                "file": "1_knowledge/Arithmetic Entropy Crop Rotations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Permutation Entropy and Ties"
+              "title": "Arithmetic Entropy Crop Rotations"
             }
           }
         ],
@@ -185,8 +185,10 @@
   },
   "active": "ec4ecdb4cc46ad5c",
   "lastOpenFiles": [
-    "1_knowledge/Permutation Entropy.md",
+    "1_knowledge/Arithmetic Entropy.md",
+    "1_knowledge/Arithmetic Entropy Crop Rotations.md",
     "1_knowledge/Permutation Entropy and Ties.md",
+    "1_knowledge/Permutation Entropy.md",
     "5_engagement",
     "4_products",
     "3_production",
