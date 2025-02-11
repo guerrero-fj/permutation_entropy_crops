@@ -1,3 +1,5 @@
+# **Arithmetic Entropy $(AE)$ and Crop Rotations**
+
 **Arithmetic Entropy $(AE)$ is highly suitable for calculating permutation entropies for crop rotations**, especially when dealing with **low embedding dimensions** (e.g., $D=2,3,4$). Crop rotations often exhibit **ties and discrete states** (e.g., the same crop planted in consecutive years), which makes standard permutation entropy methods problematic. [Vidybida’s (2020)](https://doi.org/10.1155/2020/7163254) arithmetic entropy approach resolves these issues by explicitly preserving information about ties without artificially breaking them.
 
 Here’s why and how this approach can work for crop rotations:
@@ -85,7 +87,7 @@ $$H = -\sum p(A_i) \cdot \log_2(p(A_i)),$$
     
     - Monocultures or repetitive patterns (e.g., $Wheat→Wheat→Wheat)$ will produce **lower entropy**, reflecting predictability.
     
-3. **Impact of Embedding Dimension (DDD)**:
+3. **Impact of Embedding Dimension $(D)$**:
     
     - Small $D$: Captures local relationships (e.g., transitions between crops year-to-year).
     - Large $D$: Captures long-term patterns (e.g., multi-year rotational cycles).
@@ -94,7 +96,7 @@ $$H = -\sum p(A_i) \cdot \log_2(p(A_i)),$$
 
 4. **Preserves Rotational Information**:
     - Ties in consecutive years are preserved, making the analysis ecologically meaningful.
-5. **Efficient for Small DDD**:
+5. **Efficient for Small $D$**:
     - The integer-based approach avoids computational overhead while capturing rotational complexity.
 6. **Applicability Across Systems**:
     - Can be applied to various agricultural systems, even those with coarse-grained data or a limited number of crops.
