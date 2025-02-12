@@ -1,4 +1,4 @@
-### **1️⃣ What Is Permutation Entropy?**
+### **What Is Permutation Entropy?**
 
 **Permutation Entropy (PE)** is a **complexity measure** for time series data based on the **ordering of values rather than their magnitudes**. It was introduced by **Bandt & Pompe (2002)** as a robust method to analyze **temporal patterns** in signals.
 
