@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_knowledge/Arithmetic Entropy Crop Rotations.md",
+                "file": "1_knowledge/05_Transition Matrix Entropy and Ties.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Arithmetic Entropy Crop Rotations"
+              "title": "05_Transition Matrix Entropy and Ties"
             }
           }
         ],
@@ -185,10 +185,12 @@
   },
   "active": "ec4ecdb4cc46ad5c",
   "lastOpenFiles": [
-    "1_knowledge/Arithmetic Entropy.md",
-    "1_knowledge/Arithmetic Entropy Crop Rotations.md",
-    "1_knowledge/Permutation Entropy and Ties.md",
-    "1_knowledge/Permutation Entropy.md",
+    "1_knowledge/04_Transition Matrix Entropy.md",
+    "1_knowledge/05_Transition Matrix Entropy and Ties.md",
+    "1_knowledge/00_Permutation Entropy.md",
+    "1_knowledge/03_Arithmetic Entropy Crop Rotations.md",
+    "1_knowledge/02_Arithmetic Entropy.md",
+    "1_knowledge/01_Permutation Entropy and Ties.md",
     "5_engagement",
     "4_products",
     "3_production",
