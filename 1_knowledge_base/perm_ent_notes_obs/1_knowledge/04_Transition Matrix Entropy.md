@@ -1,4 +1,4 @@
-### **What is Transition Matrix Entropy $(TME)$?**
+# **What is Transition Matrix Entropy $(TME)$?**
 
 Transition Matrix Entropy $(TME)$ is a quantitative measure of the uncertainty or disorder in the transitions between states in a system. In the context of crop rotations, TME helps capture the diversity and complexity of sequences in which different crops are planted over time. It provides insights into how structured or random the transitions between crops are, thereby offering a way to assess sustainability, resilience, and predictability in agricultural systems.
 
