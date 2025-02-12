@@ -1,3 +1,5 @@
+# Transition Matrix Entropy and Ties
+
 **Ties can also be problematic for transition matrix entropies**, although the challenges differ from those encountered with permutation entropy. Transition matrix entropy measures the complexity of transitions between discrete states (e.g., crops in a rotation), and ties can affect how these transitions are interpreted and counted.
 
 Let’s break this down:
@@ -65,14 +67,14 @@ Instead of including all $Wheat→Wheat$ transitions, scale them down or assign 
 
 #### **b. Context-Specific Weighting**
 
-- Assign weights to transitions based on their ecological or practical significance (e.g., Wheat→WheatWheat → WheatWheat→Wheat may be penalized if it reflects monoculture practices).
+- Assign weights to transitions based on their ecological or practical significance (e.g., $Wheat→Wheat$) may be penalized if it reflects monoculture practices).
 
 #### Example:
 
 Crop rotation: $[Wheat,Wheat,Corn,Soybean,Wheat]$
 
 - Assign:
-    - Wheat→Wheat: Weight = 0.5 (penalized),
+    - $Wheat→Wheat$: Weight = 0.5 (penalized),
     - $Wheat→Corn$, $Corn→Soybean$: Weight = 1.0 (unadjusted).
 
 #### **c. Introduce Lagged Transitions**
