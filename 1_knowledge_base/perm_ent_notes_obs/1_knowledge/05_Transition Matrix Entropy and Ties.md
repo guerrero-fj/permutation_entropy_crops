@@ -30,7 +30,8 @@ Crop rotation: $[Wheat, Wheat, Corn, Wheat, Wheat]$
 	- $Corn \rightarrow Corn$: 1 time.
 - Transition Matrix:
 
-			$$
+			
+$$
 State =
 \begin{array}{c|cc}
  & \text{Wheat} & \text{Corn} \\
