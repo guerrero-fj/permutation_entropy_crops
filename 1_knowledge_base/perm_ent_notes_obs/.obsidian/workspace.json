@@ -11,32 +11,13 @@
             "id": "abba13ec9a56c431",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1_knowledge/Permutation Entropy and Ties.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Permutation Entropy and Ties"
-            }
-          },
-          {
-            "id": "ec4ecdb4cc46ad5c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1_knowledge/07_Normalizing Arithmetic Entropy.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "07_Normalizing Arithmetic Entropy"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -183,10 +164,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ec4ecdb4cc46ad5c",
+  "active": "abba13ec9a56c431",
   "lastOpenFiles": [
-    "1_knowledge/06_Transition Arithmetic Entropy.md",
     "1_knowledge/07_Normalizing Arithmetic Entropy.md",
+    "1_knowledge/06_Transition Arithmetic Entropy.md",
     "1_knowledge/05_Transition Matrix Entropy and Ties.md",
     "1_knowledge/00_Permutation Entropy.md",
     "1_knowledge/03_Arithmetic Entropy Crop Rotations.md",
