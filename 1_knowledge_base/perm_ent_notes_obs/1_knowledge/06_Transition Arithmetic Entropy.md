@@ -70,3 +70,16 @@ $$ H = -\sum P(N_i) \cdot \log_2 P(N_i) $$
 4. **Improved Discrimination**:
     
     - TAE can distinguish between systems with similar transition patterns but different tie frequencies or structures.
+### **Comparison with Traditional TME**
+
+Traditional TME would likely assign low entropy to this sequence because Wheat→WheatWheat → WheatWheat→Wheat (a self-loop) dominates. TAE, however:
+
+1. Explicitly encodes ties as unique transitions,
+2. Preserves more information about the sequence's structure,
+3. Better reflects the underlying complexity.
+
+---
+
+### **Conclusion**
+
+A **Transition Arithmetic Entropy (TAE)** approach, inspired by Vidybida’s arithmetic entropy, can effectively handle ties in transition matrix entropies. It offers a robust, flexible method for analyzing systems like crop rotations, where ties and repeated states are common.
