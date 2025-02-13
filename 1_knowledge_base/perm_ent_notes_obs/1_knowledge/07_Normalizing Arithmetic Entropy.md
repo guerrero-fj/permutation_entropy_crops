@@ -167,9 +167,7 @@ S(3,1) = 1
 $$
 
 **Contribution:**  
-$$
-3 \cdot 1 = 3
-$$
+$$3 \cdot 1 = 3$$
 
 For $d = 2$:
 
@@ -182,9 +180,7 @@ S(3,2) = 3
 $$
 
 **Contribution:**  
-$$
-3 \cdot 3 = 9
-$$
+$$3 \cdot 3 = 9$$
 
 For $d = 3$:
 
@@ -197,9 +193,7 @@ S(3,3) = 1
 $$
 
 **Contribution:**  
-$$
-1 \cdot 1 = 1
-$$
+$$1 \cdot 1 = 1$$
 
 ### Step 2: Sum the Contributions
 
@@ -214,9 +208,9 @@ Thus, for $D = 3$ with ties, there are **13 unique ordinal patterns**.
 # Comparison: No Ties vs. With Ties
 
 - **Without Ties:**  
-  $$ K = D! = 6 $$  
+  $$K = D! = 6$$  
   (Strictly ordered patterns only)
 
 - **With Ties:**  
-  $$ K = 13 $$  
+  $$K = 13$$  
   (Accounts for additional patterns introduced by ties)
