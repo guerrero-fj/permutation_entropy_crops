@@ -11,10 +11,14 @@
             "id": "abba13ec9a56c431",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "1_knowledge/03_Arithmetic Entropy Crop Rotations.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "03_Arithmetic Entropy Crop Rotations"
             }
           }
         ]
