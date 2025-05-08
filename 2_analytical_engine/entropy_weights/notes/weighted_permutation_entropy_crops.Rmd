@@ -1,0 +1,127 @@
+---
+title: "entropy_weights"
+output: html_document
+date: "2025-05-08"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+**Title: Calculating Weighted Permutation Entropies for Multi-Objective
+Calibration in Environmental Models**
+
+**Objective:** To quantify the temporal complexity of crop yield time
+series in a way that reflects both the unpredictability of the data (via
+permutation entropy) and its structural importance (via information
+gain), for use in calibration weighting alongside other variables like
+ET and streamflow.
+
+------------------------------------------------------------------------
+
+**Conceptual Basis:**
+
+In environmental model calibration, we often need to combine multiple
+objectives into a single weighted function. Crop yield, ET, and
+streamflow are common calibration targets. However, their contributions
+to overall system dynamics differ in both structure and temporal
+variability. To properly reflect these differences:
+
+-   **Permutation Entropy (PE)** captures the temporal complexity or
+    unpredictability of a time series.
+-   **Information Gain (I)**, based on the Johnston & Semple (1983)
+    method, reflects the structural contribution of a variable by
+    quantifying the inequality in its distribution across time.
+
+While PE alone tells us about the randomness in ordering patterns, and I
+alone tells us how much a variable contributes to the overall yield
+structure, their combination gives us a more holistic measure of how
+important and complex each variable is.
+
+To enable cross-variable comparison, all entropy-derived metrics are
+**normalized to the [0, 1] range**, including permutation entropy,
+spectral entropy, and the coefficient of variation (CV) of annual
+spectral entropy. While entropy is traditionally expressed in bits,
+normalization allows us to treat these measures as **unitless indicators
+of system complexity**. Thus, normalized entropy, information gain, and
+CV of entropy can be combined and interpreted consistently within a
+multi-objective calibration framework.
+
+------------------------------------------------------------------------
+
+**Procedure:**
+
+1.  **Compute Permutation Entropy** for each crop yield time series:
+
+    -   For a time series $X = [x_1, x_2, ..., x_n]$, select an
+        embedding dimension $m$.
+
+    -   Identify all consecutive overlapping segments of $m$ values.
+
+    -   Count the frequency of each unique ordinal pattern (permutation)
+        among these segments.
+
+    -   Compute Shannon entropy over the resulting pattern distribution:
+
+        $$ PE = -\sum_{k=1}^{m!} p_k \log_2(p_k) $$
+
+    -   Normalize by dividing by the maximum entropy $\log_2(m!)$:
+
+        $$ PE_{norm} = \frac{PE}{\log_2(m!)} $$
+
+2.  **Compute Information Gain (I)** for each crop type:
+
+    -   Normalize crop yields by year so that each year’s yield
+        proportions sum to 1:
+
+        $$ Y_{ij} = \frac{\text{Yield of crop } j \text{ in year } i}{\sum_j \text{Yield in year } i} $$
+
+    -   Compute the mean proportion of each crop over all years:
+
+        $$ Y_j = \frac{1}{N} \sum_{i=1}^{N} Y_{ij} $$
+
+    -   Compute the inequality (information gain) for each crop:
+
+        $$ I_j = Y_j \sum_{i=1}^{N} Y_{ij} \log_2(N Y_{ij}) $$
+
+3.  **Compute Weighted Permutation Entropy** for each crop:
+
+    -   First, normalize information gain values across all crops:
+
+        $$ w_j = \frac{I_j}{\sum_j I_j} $$
+
+    -   Then, compute the weighted permutation entropy:
+
+        $$ PE_{weighted,j} = PE_{norm,j} \cdot w_j $$
+
+------------------------------------------------------------------------
+
+**Interpretation:** - $PE_{weighted}$ reflects both **how complex** a
+crop's temporal pattern is and **how much that crop contributes** to the
+system's structural variability. - These entropy values can then be
+compared directly with spectral entropies for ET and streamflow. -
+Optionally, the inverse ($1 - PE_{weighted}$) can be used to assign
+calibration weights that favor more predictable or informative patterns.
+
+------------------------------------------------------------------------
+
+**Publication-Ready Summary:** To synthesize crop-specific temporal
+complexity with structural contribution, we propose a composite entropy
+metric referred to as *weighted permutation entropy*. For each crop
+yield time series, we first calculate the normalized permutation entropy
+$PE_{norm,j}$ based on ordinal patterns of a chosen embedding dimension.
+Separately, we estimate the information gain $I_j$ for each crop based
+on its relative concentration across years using the Johnston and Semple
+(1983) formulation. By normalizing these values to obtain relative
+weights $w_j = I_j / \sum_j I_j$, we compute the final weighted entropy
+as: $$ PE_{weighted,j} = PE_{norm,j} \cdot w_j $$ This quantity captures
+the extent to which each crop exhibits temporal disorder, weighted by
+its structural dominance in the yield record, and can be compared
+directly with spectral entropies from continuous time series like ET and
+streamflow in multi-objective calibration strategies.
+
+------------------------------------------------------------------------
+
+**Use Case:** This method provides a defensible and transparent way to
+prioritize calibration targets not just by their volume or variance, but
+by their **informational structure**, which is crucial when capturing
+dynamic responses to long-term climate variability.
