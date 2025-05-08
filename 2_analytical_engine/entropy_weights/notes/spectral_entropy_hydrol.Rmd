@@ -1,0 +1,87 @@
+---
+title: "spectral_entropy_time_series"
+output: html_document
+date: "2025-05-08"
+---
+# Spectral Entropy Analysis for Streamflow and Evapotranspiration
+
+**Date**: 2025-05-08
+
+---
+
+## Objective
+
+To derive entropy-based weights for use in multi-objective optimization of SWAT 
+model outputs. We compute **between-band spectral entropy** for streamflow and 
+evapotranspiration (ET) time series, capturing the distribution of variability 
+across hydrologically meaningful time scales.
+
+---
+
+## Method Summary
+
+### 1. Preprocessing
+
+- **Log-transform** the data to reduce skewness and emphasize relative variability.
+- **Demean** the time series to center around zero.
+- **Apply Hann window** to minimize spectral leakage.
+
+### 2. FFT and Frequency Bins
+
+- Use the Fast Fourier Transform (FFT) to obtain the power spectrum.
+- For streamflow (daily resolution), compute frequencies in **cycles/day**.
+- For ET (8-day resolution), compute frequencies in **cycles per 8 days**.
+
+---
+
+## Frequency Bands
+
+### Common Hydrologic Time Scales:
+
+| Band | Period (Days) | Streamflow (cycles/day) | ET (cycles/8 days) |
+|------|---------------|--------------------------|---------------------|
+| 1    | 1–10          | 0.1 – 1.0                | 0.8 – 8.0           |
+| 2    | 10–60         | 0.0167 – 0.1             | 0.133 – 0.8         |
+| 3    | 60–180        | 0.0056 – 0.0167          | 0.044 – 0.133       |
+| 4    | 180–730       | 0.00137 – 0.0056         | 0.011 – 0.044       |
+| 5    | >730          | 0 – 0.00137              | 0 – 0.011           |
+
+---
+
+## Entropy Calculation
+
+1. Compute total power within each band.
+2. Normalize the band powers to form a probability distribution.
+3. Compute **Shannon entropy**:
+   \[
+   H = -\sum p_i \log_2(p_i)
+   \]
+4. Normalize entropy:
+   \[
+   H_\text{norm} = \frac{H}{\log_2(n)}, \quad n = \text{number of bands} = 5
+   \]
+
+---
+
+## Results
+
+### Streamflow
+- Dominant power in seasonal–interannual band (6–24 months)
+- Normalized entropy: **~0.85** (moderate complexity)
+
+### Evapotranspiration
+- Very strong concentration in 6–24 month band
+- Normalized entropy: **~0.28** (low spectral diversity)
+
+---
+
+## Applications
+
+- Use normalized entropy values as **weights** in SWAT multi-objective calibration.
+- Higher entropy = greater information richness = more calibration priority.
+
+---
+
+## Code Implementation
+
+See `streamflow_entropy.R` and `et_entropy.R` for full reproducible scripts.
