@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "07_Normalizing Arithmetic Entropy"
             }
+          },
+          {
+            "id": "588d536f0004d8ed",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,7 +195,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6fb643c8d78d56fc",
+  "active": "588d536f0004d8ed",
   "lastOpenFiles": [
     "1_knowledge/06_Transition Arithmetic Entropy.md",
     "1_knowledge/05_Transition Matrix Entropy and Ties.md",
